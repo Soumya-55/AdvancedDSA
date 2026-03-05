@@ -10,9 +10,6 @@ class Solution {
         for(int i=k;i<n;i++){
             sum+=nums[i]-nums[i-k];
             max=Math.max(sum,max);
-           
-
-
         }
         return max/k;
     }
