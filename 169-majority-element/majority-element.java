@@ -1,16 +1,18 @@
 class Solution {
-    public int majorityElement(int[] nums) {
-        int half=nums.length/2;
-        int ans=0;
-        HashMap<Integer,Integer> map=new HashMap<>();
+    public int majorityElement(int[] nums) {//boyer moore voting algorithm 
+        int count=0, candidate=-1;
         for(int i=0;i<nums.length;i++){
-            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
-        }
-        for(int x:map.keySet()){
-            if(map.get(x)>half){
-                ans=x;
+            if(count==0){
+                candidate=nums[i];
+                //count=1;
+            }
+            if(candidate==nums[i]){
+                count++;
+            }
+            else{
+                count--;
             }
         }
-    return ans;
+        return candidate;
     }
 }
