@@ -6,7 +6,7 @@ class Solution {
         n>>=1;
 
        }
-       return (cnt==1);
+       return cnt==1;
 
     }
 }
