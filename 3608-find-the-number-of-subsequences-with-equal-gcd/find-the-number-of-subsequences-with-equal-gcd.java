@@ -13,7 +13,7 @@ class Solution {
         for (int x : nums) {
             long[][] ndp = new long[max + 1][max + 1];
 
-            // Option 1: Ignore current element
+           
             for (int g1 = 0; g1 <= max; g1++) {
                 for (int g2 = 0; g2 <= max; g2++) {
                     ndp[g1][g2] = dp[g1][g2];
@@ -26,11 +26,11 @@ class Solution {
 
                     if (cur == 0) continue;
 
-                    // Option 2: Put x in first subsequence
+               
                     int ng1 = (g1 == 0) ? x : gcd(g1, x);
                     ndp[ng1][g2] = (ndp[ng1][g2] + cur) % MOD;
 
-                    // Option 3: Put x in second subsequence
+                    
                     int ng2 = (g2 == 0) ? x : gcd(g2, x);
                     ndp[g1][ng2] = (ndp[g1][ng2] + cur) % MOD;
                 }
@@ -41,7 +41,7 @@ class Solution {
 
         long ans = 0;
 
-        // Both subsequences should be non-empty and have equal gcd
+      
         for (int g = 1; g <= max; g++) {
             ans = (ans + dp[g][g]) % MOD;
         }
